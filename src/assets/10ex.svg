@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <style>
+      .logo-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 900;
+        font-size: 48px;
+        letter-spacing: -0.03em;
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <!-- Dark background matching app theme - full size -->
+  <rect width="100" height="100" rx="18" fill="#0A0A12"/>
+  <!-- 10ᵉˣ text - centered with margin around it -->
+  <text x="50" y="50" text-anchor="middle" class="logo-text" dominant-baseline="central" alignment-baseline="central">10&#x1D49;&#x02E3;</text>
+</svg>
