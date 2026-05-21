@@ -1,4 +1,4 @@
-import { Receipt, Calculator, HandCoins, UserCheck, ShieldCheck, CheckCircle2, Clock, DollarSign, HelpCircle, Check, Menu, Facebook, Twitter, Instagram } from "lucide-react";
+import { Receipt, Calculator, HandCoins, UserCheck, ShieldCheck, CheckCircle2, Clock, DollarSign, HelpCircle, Check, Menu, Facebook, Twitter, Instagram, BookOpen, Building2, Repeat2, FileText } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -156,6 +156,136 @@ export function TaxConsultantTemplate() {
         </div>
       </section>
 
+      {/* Services We Provide */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Services We Provide</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              We understand the needs for professionalism, privacy and confidentiality in both our relationship with our customers as well as your clients.
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            <div className="space-y-10">
+              {[
+                { icon: Receipt, title: "Income Tax Filing", desc: "Hassle-free e-filing for individuals, freelancers, and salaried employees with 100% accuracy." },
+                { icon: HandCoins, title: "GST Compliance", desc: "End-to-end GST registration, monthly returns, and reconciliation services for businesses." },
+                { icon: Calculator, title: "Business Tax", desc: "Comprehensive business tax solutions including advance tax and TDS management." },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 items-start">
+                  <div className="w-14 h-14 rounded-full border-2 border-emerald-200 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="text-emerald-500" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?q=80&w=600&auto=format&fit=crop"
+                className="w-full max-w-xs rounded-xl object-cover shadow-lg"
+              />
+            </div>
+            <div className="space-y-10">
+              {[
+                { icon: ShieldCheck, title: "Audit & Assurance", desc: "Our consultants are experienced and highly skilled in all aspects of audit and assurance." },
+                { icon: DollarSign, title: "Tax Planning", desc: "Strategic tax planning to legally minimize your liability and maximize savings year-round." },
+                { icon: UserCheck, title: "Notice Assistance", desc: "Expert drafting and representation for income tax notices and scrutiny assessments." },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 items-start">
+                  <div className="w-14 h-14 rounded-full border-2 border-emerald-200 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="text-emerald-500" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Financial Planning Wheel */}
+      <section className="py-20 bg-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            {/* Wheel diagram */}
+            <div className="flex-shrink-0 w-full lg:w-auto flex justify-center">
+              <div className="relative w-[480px] h-[480px]">
+                {/* Decorative rings */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-80 h-80 rounded-full border border-[#d4b8aa]/40"></div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-52 h-52 rounded-full border border-[#d4b8aa]/40"></div>
+                </div>
+                {/* Connecting lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 480 480">
+                  {[0, 60, 120, 180, 240, 300].map((angle, i) => {
+                    const rad = (angle - 90) * Math.PI / 180;
+                    return (
+                      <line
+                        key={i}
+                        x1={240 + 46 * Math.cos(rad)}
+                        y1={240 + 46 * Math.sin(rad)}
+                        x2={240 + 115 * Math.cos(rad)}
+                        y2={240 + 115 * Math.sin(rad)}
+                        stroke="#c4a898"
+                        strokeWidth="1.5"
+                      />
+                    );
+                  })}
+                </svg>
+                {/* Center */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-white rounded-full border-4 border-[#1E3A6E] flex flex-col items-center justify-center z-10 shadow-lg">
+                  <Receipt className="text-[#1E3A6E]" size={20} />
+                  <span className="text-[10px] font-bold text-[#1E3A6E] text-center leading-tight px-1 mt-1">TaxExpert</span>
+                </div>
+                {/* Service nodes */}
+                {[
+                  { label: "ACCOUNTING & BOOKKEEPING", icon: BookOpen, angle: 0, bg: "bg-emerald-600" },
+                  { label: "COMPANY REGISTRATION", icon: Building2, angle: 60, bg: "bg-emerald-900" },
+                  { label: "INCOME TAX RETURN FILING", icon: Receipt, angle: 120, bg: "bg-emerald-600" },
+                  { label: "AUDITING & ASSURANCE", icon: ShieldCheck, angle: 180, bg: "bg-emerald-900" },
+                  { label: "GST REGISTRATION", icon: FileText, angle: 240, bg: "bg-emerald-600" },
+                  { label: "IMPORT-EXPORT CODE", icon: Repeat2, angle: 300, bg: "bg-emerald-900" },
+                ].map((node, i) => {
+                  const rad = (node.angle - 90) * Math.PI / 180;
+                  const cx = 240 + 170 * Math.cos(rad);
+                  const cy = 240 + 170 * Math.sin(rad);
+                  return (
+                    <div
+                      key={i}
+                      className={`absolute ${node.bg} text-white rounded-full flex items-center gap-2 px-3 py-2 text-[10px] font-bold shadow-md leading-tight z-20`}
+                      style={{ width: "140px", left: cx - 70, top: cy - 22 }}
+                    >
+                      <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <node.icon size={12} />
+                      </div>
+                      <span>{node.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Text */}
+            <div className="max-w-lg">
+              <p className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-3">WE WILL MANAGE</p>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">Financial Planning <br />for You</h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                We are providing all tax & compliance services whether online or offline using the most secure technology with upfront transparent pricing approach and helping businesses to grow.
+              </p>
+              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 font-semibold">Contact Us</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Plans Section */}
       <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -202,6 +332,51 @@ export function TaxConsultantTemplate() {
                   Choose Plan
                 </Button>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Alliance / FAQ + Stats */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+            <div>
+              <p className="text-emerald-600 font-semibold uppercase tracking-widest text-sm mb-4">VISION MAKES US WHO WE ARE</p>
+              <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                We Are a Certified<br />Tax Consulting Firm<br />of Experts
+              </h2>
+            </div>
+            <div className="divide-y divide-gray-200">
+              {[
+                { q: "How Can We Help You?", a: "Our team provides comprehensive tax planning, filing, and compliance services tailored to your individual or business needs. We ensure maximum deductions and accurate filing within all regulatory deadlines." },
+                { q: "Income Tax Planning & Savings", a: "" },
+                { q: "GST Compliance & Advisory", a: "" },
+                { q: "Business Tax & Audit Support", a: "" },
+              ].map((item, i) => (
+                <details key={i} className="group py-5 cursor-pointer">
+                  <summary className="flex items-center justify-between text-gray-800 font-semibold text-base list-none select-none">
+                    <span>{item.q}</span>
+                    <span className="text-gray-400 text-xl leading-none group-open:hidden">+</span>
+                    <span className="text-gray-400 text-xl leading-none hidden group-open:block">−</span>
+                  </summary>
+                  {item.a && <p className="mt-3 text-gray-500 text-sm leading-relaxed">{item.a}</p>}
+                </details>
+              ))}
+            </div>
+          </div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 border-t pt-16">
+            {[
+              { value: "98%", label: "ACCURACY RATE" },
+              { value: "5K+", label: "RETURNS FILED" },
+              { value: "1,000+", label: "HAPPY CLIENTS" },
+              { value: "₹50Cr+", label: "TAX SAVED" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-5xl font-bold text-emerald-600 mb-2">{stat.value}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest font-medium">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>

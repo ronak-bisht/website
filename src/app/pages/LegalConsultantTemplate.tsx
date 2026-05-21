@@ -1,4 +1,4 @@
-import { Scale, Gavel, Shield, FileText, Users, Award, Phone, Mail, Menu, ArrowRight, Quote, Briefcase, CheckCircle2 } from "lucide-react";
+import { Scale, Gavel, Shield, FileText, Users, Award, Phone, Mail, Menu, ArrowRight, Quote, Briefcase, CheckCircle2, Car, Leaf } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
@@ -50,11 +50,13 @@ export function LegalConsultantTemplate() {
             <p className="text-xl text-slate-300 mb-10 leading-relaxed">Dedicated to providing high-caliber legal representation with integrity and a results-driven approach. Protecting your rights and your future.</p>
             <div className="flex flex-col sm:flex-row gap-5">
               <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-10 h-16 text-lg rounded-none">Meet Our Team</Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-10 h-16 text-lg rounded-none">Our Success Stories</Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900 px-10 h-16 text-lg rounded-none bg-transparent">Our Success Stories</Button>
             </div>
           </div>
         </div>
       </section>
+
+   
 
       {/* Practice Areas */}
       <section className="py-24 bg-slate-50">
@@ -77,6 +79,60 @@ export function LegalConsultantTemplate() {
                 </a>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services We Provide */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Services We Provide</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              We understand the needs for professionalism, privacy and confidentiality in both our relationship with our customers as well as your clients.
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            <div className="space-y-10">
+              {[
+                { icon: Car, title: "Traffic Accident", desc: "Specialist legal services to support vulnerable road users including motorcyclists, cyclists." },
+                { icon: Leaf, title: "Environment", desc: "Organically grow the holistic world view of disruptive innovation via workplace diversity." },
+                { icon: Shield, title: "Insurance", desc: "Our clients share our passion for results and it shows in their success. Companies that trust us." },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 items-start">
+                  <div className="w-14 h-14 rounded-full border-2 border-amber-300 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="text-amber-600" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=600&auto=format&fit=crop"
+                className="w-full max-w-xs object-cover"
+              />
+            </div>
+            <div className="space-y-10">
+              {[
+                { icon: FileText, title: "Property Law", desc: "Our attorneys are experienced and highly skilled in all aspects of discovery and trial work." },
+                { icon: Gavel, title: "Civil Litigation", desc: "We work together as one firm to serve our clients wherever they need us. We have offices in 25 countries." },
+                { icon: Users, title: "Family Law", desc: "Protect your wealth and ensure you receive a fair settlement. Our expert lawyers will always provide." },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-5 items-start">
+                  <div className="w-14 h-14 rounded-full border-2 border-amber-300 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="text-amber-600" size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-lg mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

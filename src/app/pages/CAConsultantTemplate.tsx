@@ -1,4 +1,4 @@
-import { ShieldCheck, Briefcase, FileText, PieChart, Users, Scale, ArrowRight, Lightbulb, Workflow, Handshake, Quote, Menu, Phone, Mail } from "lucide-react";
+import { ShieldCheck, Briefcase, FileText, PieChart, Users, Scale, ArrowRight, Lightbulb, Workflow, Handshake, Quote, Menu, Phone, Mail, ClipboardList, BookOpen, TrendingUp, Target, BarChart2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -122,6 +122,32 @@ export function CAConsultantTemplate() {
         </div>
       </section>
 
+      {/* Some Of Our Best Services — Numbered Cards */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-16 uppercase tracking-widest">Some Of Our Best Services</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { num: "01", icon: ClipboardList, title: "Vision to Plan", desc: "Coordinate complete resource taxation relationships through leading niches. Visualise customer-centric convergence without disruptive ROI." },
+              { num: "02", icon: FileText, title: "Plan to Market", desc: "Change management consulting works within workflows to establish a framework. Take the main indicators offline to maximise the long tail." },
+              { num: "03", icon: BookOpen, title: "Market to Growth", desc: "Reliably innovate with detailed internal or organic sources while maintaining high standards for compliance. Dynamic scaling stands the test of time." },
+              { num: "04", icon: TrendingUp, title: "Growth to Vision", desc: "Leverage agile frameworks to provide a robust synopsis for high-level overviews. Iterative approaches to corporate strategy foster collaborative thinking." },
+              { num: "05", icon: Target, title: "Vision to Market", desc: "Bring to the table win-win survival strategies to ensure proactive financial domination and long-term client success." },
+              { num: "06", icon: BarChart2, title: "Market to Plan", desc: "Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line." },
+            ].map((service, i) => (
+              <Card key={i} className="p-8 border border-slate-200 shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden">
+                <span className="absolute top-4 right-6 text-6xl font-bold text-orange-100 select-none leading-none">{service.num}</span>
+                <div className="w-14 h-14 bg-blue-700 rounded-full flex items-center justify-center mb-6">
+                  <service.icon className="text-white" size={24} />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 uppercase tracking-wider mb-3">{service.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{service.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Process Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -240,6 +266,29 @@ export function CAConsultantTemplate() {
                 <p className="text-slate-600 text-sm">{member.bio}</p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* We Stand For Your Success */}
+      <section className="overflow-hidden">
+        <div className="grid lg:grid-cols-2">
+          <div className="relative h-80 lg:h-auto min-h-[400px]">
+            <ImageWithFallback
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
+              alt="Our Team"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-slate-100 px-12 py-20 flex flex-col justify-center">
+            <p className="text-blue-600 font-semibold mb-3">Need Any Help?</p>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6 leading-tight">
+              We Stand For<br />Your Success
+            </h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              CA Associates is a premier financial consulting firm founded in Mumbai and expanded our services to become a multinational practice, offering comprehensive solutions worldwide. Our team has designed game-changing financial strategies for hundreds of companies.
+            </p>
+            <Button className="bg-slate-900 hover:bg-slate-800 text-white w-fit px-8">Contact Us</Button>
           </div>
         </div>
       </section>
